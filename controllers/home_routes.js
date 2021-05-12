@@ -183,6 +183,13 @@ router.get("/home", async (req, res) => {
   }
 });
 
+router.get("/feedback", async (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/patient_dashboard");
+  }
+  res.render("feedback");
+});
+
 router.get("/patient_registration", async (req, res) => {
   try {
     res.render("patient_registration", {
